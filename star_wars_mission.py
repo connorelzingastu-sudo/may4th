@@ -1,14 +1,18 @@
 import random
 
-
 characters = [
-    "Jedi Knight",
-    "Padawan",
-    "Rebel Pilot",
-    "Mandalorian",
-    "Smuggler",
-    "Clone Trooper",
-    "Resistance Spy"
+    "A Jedi Knight",
+    "A Padawan",
+    "A Rebel Pilot",
+    "A Mandalorian",
+    "A Smuggler",
+    "A Clone Trooper",
+    "A Resistance Spy",
+    # New Characters
+    "Yoda",
+    "Luke Skywalker",
+    "Din Djarin"
+
 ]
 
 planets = [
@@ -18,27 +22,35 @@ planets = [
     "Naboo",
     "Coruscant",
     "Dagobah",
-    "Mustafar"
+    "Mustafar",
+    # New Planets
+    "Starkiller Base"
 ]
 
 missions = [
-    "rescue a captured droid",
-    "recover stolen battle plans",
-    "escape an Imperial base",
-    "protect a hidden Jedi temple",
-    "deliver a secret message",
-    "destroy a Sith weapon",
-    "find a lost lightsaber"
+    "Rescue a captured droid",
+    "Recover stolen battle plans",
+    "Escape an Imperial base",
+    "Protect a hidden Jedi temple",
+    "Deliver a secret message",
+    "Destroy a Sith weapon",
+    "Find a lost lightsaber",
+    # New Missions 
+    "Rrescue Grogue (Baby Yoda)"
 ]
 
 enemies = [
     "Darth Vader",
-    "a Sith Inquisitor",
-    "stormtroopers",
-    "bounty hunters",
-    "a crime lord",
-    "battle droids",
-    "the First Order"
+    "A Sith Inquisitor",
+    "Stormtroopers",
+    "Bounty Hunters",
+    "A Crime Lord",
+    "Battle droids",
+    "The First Order",
+    # New Enamies
+    "Kylo Ren",
+    "Darth Maul",
+    "Count Dooku"
 ]
 
 allies = [
@@ -47,8 +59,9 @@ allies = [
     "Ahsoka Tano",
     "Obi-Wan Kenobi",
     "BB-8",
-    "a group of Ewoks",
-    "a mysterious rebel informant"
+    "A Group of Ewoks",
+    "A Mysterious Rebel Informant"
+    # New Allies
 ]
 
 ships = [
@@ -58,7 +71,21 @@ ships = [
     "Naboo starfighter",
     "Razor Crest",
     "Jedi starfighter",
-    "Corellian freighter"
+    "Corellian freighter",
+    # New Ships
+    "Death Star",
+    "Imperial Star Destroyer"
+]
+
+weapons = [
+    "a red lightsaber",
+    "a green lightsaber"
+    "Luke's lightsaber",
+    "a blaster",
+    "the Darksaber",
+    "a Beskar spear",
+    "nothing but the knowledge of the force",
+    "a flamethrower"
 ]
 
 
@@ -70,9 +97,10 @@ def generate_mission():
     ally = random.choice(allies)
     ship = random.choice(ships)
     difficulty = random.randint(1, 10)
+    weapon = random.choice(weapons)
 
     print("\n==============================")
-    print("   STAR WARS MISSION BRIEFING")
+    print("  STAR WARS MISSION BRIEFING  ")
     print("==============================")
     print("Character:", character)
     print("Planet:", planet)
@@ -83,8 +111,9 @@ def generate_mission():
     print("Difficulty:", difficulty)
 
     print("\nBriefing:")
-    print(f"A {character} must travel to {planet} aboard the {ship}.")
-    print(f"With help from {ally}, they must {mission} before {enemy} stops them.")
+    print(f"{character} must travel to {planet} aboard the {ship}.")
+    print(f"With help from {ally}, and carrying {weapon},")
+    print(f"they must {mission} before {enemy} stops them.")
 
     if difficulty <= 3:
         print("This should be an easy mission.")
@@ -95,16 +124,17 @@ def generate_mission():
 
     print("May the Force be with you.")
 
+def main():
+    print("Welcome to the Star Wars Mission Generator!")
 
-print("Welcome to the Star Wars Mission Generator!")
+    while True:
+        choice = input("\nGenerate a new mission? yes/no: ").title()
 
-while True:
-    choice = input("\nGenerate a new mission? yes/no: ").lower()
-
-    if choice == "yes":
-        generate_mission()
-    elif choice == "no":
-        print("Goodbye, young Jedi.")
-        break
-    else:
-        print("Please type yes or no.")
+        if choice == "Yes":
+            generate_mission()
+        elif choice == "No":
+            print("Goodbye, young Jedi.")
+            break
+        else:
+            print("Please type yes or no.")
+main()
